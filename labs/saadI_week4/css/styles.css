@@ -43,6 +43,16 @@
     animation: cardDownAnim .7s;
     animation-fill-mode: both;
   }
+
+  .titleDown{
+    animation: titleDownAnim .7s;
+    animation-fill-mode:both;
+  }
+
+  .bigSquareDown{
+    animation: bigSquareDownAnim .7s;
+    animation-fill-mode:both;
+  }
   
   #theplace {
     width: 950px;
@@ -113,6 +123,32 @@
       opacity: 1;
       transform: scale(1.2);
       background-color: #d60637;
+    }
+    
+    to {
+      opacity: 0;
+      transform: scale(.5);
+    }
+  }
+
+  @keyframes titleDownAnim {
+    from {
+      opacity: 1;
+      transform: scale(1);
+      
+    }
+    
+    to {
+      opacity: 0;
+      transform: scale(.5);
+    }
+  }
+
+  @keyframes bigSquareDownAnim {
+    from {
+      opacity: 1;
+      transform: scale(1);
+      
     }
     
     to {

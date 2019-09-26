@@ -3,6 +3,8 @@
 
 var theplace = document.querySelector("#theplace");
 var cardTemplate = document.querySelector("#cardTemplate");
+var titleSelector = document.querySelector(".title");
+var bigSquareSelect = document.querySelector(".bigSquare");
 
 var suits = [ "", ""];
 var values = [ " ", "", ""];
@@ -43,4 +45,16 @@ function onCardDown(event) {
     event.target.classList.add("cardDown");
 
   
+}
+
+titleSelector.addEventListener("mousedown", onTitleDown);
+
+function onTitleDown(event){
+    event.target.classList.add("titleDown");
+}
+
+bigSquareSelect.addEventListener("mousedown", bigSquareDown);
+
+function bigSquareDown(){
+    event.target.classList.add("bigSquareDown");
 }

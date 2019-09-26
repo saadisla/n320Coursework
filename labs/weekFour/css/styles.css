@@ -1,0 +1,158 @@
+.title{
+    margin-top:40px;
+    font-family:sans-serif;
+    font-size:3em;
+    animation: titleIn .7s;
+}
+
+.bigSquare{
+    margin-top:20px;
+    margin-bottom:10px;
+    width:1000px;
+    height:150px;
+    background-color:#1d0763;
+    animation: bigSquare 1.4s;
+}
+
+.card {
+    opacity: 0;
+    
+    
+    background-color:#9522b5;
+    border-radius: 4px;
+    width: 250px;
+    height: 150px;
+    margin: 20px;
+    padding: 10px;
+    animation: cardBuildIn .7s;
+    animation-delay:.2s;
+    animation-fill-mode: both;
+  }
+  
+  .cardOver {
+    animation: cardOverAnim .7s;
+    animation-fill-mode: both;
+  }
+  
+  .cardOut {
+    animation: cardOutAnim .7s;
+    animation-fill-mode: both;
+  }
+
+  .cardDown {
+    animation: cardDownAnim .7s;
+    animation-fill-mode: both;
+  }
+
+  .titleDown{
+    animation: titleDownAnim .7s;
+    animation-fill-mode:both;
+  }
+
+  .bigSquareDown{
+    animation: bigSquareDownAnim .7s;
+    animation-fill-mode:both;
+  }
+  
+  #theplace {
+    width: 950px;
+    margin: 30px;
+    display: flex;
+    flex-flow: row wrap;
+  }
+  
+  @keyframes titleIn {
+    from{
+      opacity: 0;
+      transform: rotateY(90deg);
+    }
+  }
+
+  @keyframes bigSquare { 
+    from{
+      opacity: 0;
+     
+      transform: scale(.1);
+      
+    } 
+    to{
+      opacity:1;
+      transform: scale(1);
+      transform: scale(1);
+      
+    }
+  }
+
+  @keyframes cardBuildIn {
+    from {
+      opacity: 0;
+      transform: scale(.2);
+      
+    }
+    to {
+      opacity: 1;
+      
+    }
+  }
+  
+  @keyframes cardOverAnim {
+    to {
+      opacity: 1;
+      background-color: #d60637;
+      transform: scale(1.2);
+    }
+  }
+  
+  @keyframes cardOutAnim {
+    from {
+      opacity: 1;
+      transform: scale(1.2);
+      background-color: #d60637;
+    }
+    
+    to {
+      opacity: 1;
+      transform: scale(1);
+      background-color: #9522b5;
+    }
+  }
+
+   
+  @keyframes cardDownAnim {
+    from {
+      opacity: 1;
+      transform: scale(1.2);
+      background-color: #d60637;
+    }
+    
+    to {
+      opacity: 0;
+      transform: scale(.5);
+    }
+  }
+
+  @keyframes titleDownAnim {
+    from {
+      opacity: 1;
+      transform: scale(1);
+      
+    }
+    
+    to {
+      opacity: 0;
+      transform: scale(.5);
+    }
+  }
+
+  @keyframes bigSquareDownAnim {
+    from {
+      opacity: 1;
+      transform: scale(1);
+      
+    }
+    
+    to {
+      opacity: 0;
+      transform: scale(.5);
+    }
+  }

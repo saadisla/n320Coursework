@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Week 5 - Vue.js</title>
+    <style>
+            body {
+                background: #000;
+                
+            }
+
+            .wrapper{
+                display:flex;
+                justify-content: center;
+            }
+
+            .student {
+                border-radius: 4px;
+                width: 400px;
+                height: 400px;
+                font-size:3em;
+                padding: 25px;
+                background-color: beige;
+                color: maroon;
+                text-shadow: 1px 1px 4px #000;
+            }
+            .arrow {
+                cursor: pointer;
+                color: #000;
+                font-weight:bolder;
+                border-style:solid;
+                border-color:orangered;
+                font-size:20px;
+                
+                width: 40px;
+                height: 40px;
+                padding: 5px;
+                margin: 5px;
+                border-radius: 15px;
+                margin:auto;
+               
+                background: orange;
+
+            }
+
+            .arrow:hover{
+                background-color:yellow;
+            }
+
+            .arrows{
+                display:flex;
+            }
+
+            .cardActive{
+                transition: transform .7s ease, opacity .3s ease;
+                transform: rotate(360deg);
+                opacity:1;
+            }
+        </style>
+</head>
+
+<body>
+    
+    <div id="app"> 
+        <div class="wrapper">
+            <student-card v-bind:student="currentStudent" v-bind:isactive="cardActive"></student-card>
+        </div>
+            <div class="arrows">
+                    <div class="arrow" v-on:click="arrowBack"><p><</p></div>
+                    <div class="arrow" v-on:click="arrowClicked"><p>></p></div>
+                </div>
+        </div>   
+        
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

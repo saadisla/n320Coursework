@@ -1,0 +1,21 @@
+{
+    
+        "albums":[
+        {"name":"To Pimp a Butterfly", "Good":true,"Minutes":65,"Genre":"Rap/Hip-Hop", "Artist":[
+            {"artistname": "Kendrick Lamar", "age":31, "smell":"Nice"}
+        ]},
+        {"name":"Mezzanine", "Good":true,"Minutes":61,"Genre":"Rock/Trip-Hop", "Artist":[
+            {"artistname": "Kendrick Lamar", "age":31, "smell":"Nice"}
+        ]},
+        {"name":"Animals", "Good":true,"Minutes":46,"Genre":"Rock", "Artist":[
+            {"artistname": "Kendrick Lamar", "age":31, "smell":"Nice"}
+        ]},
+        {"name":"Jesus is King", "Good":false,"Minutes":34,"Genre":"Gospel", "Artist":[
+            {"artistname": "Kendrick Lamar", "age":31, "smell":"Nice"}
+        ]}
+
+        ]
+
+    
+    
+}

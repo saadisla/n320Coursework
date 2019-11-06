@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tic Tac Toe</title>
+    <style>
+        .wrapper{
+            background-color:#d7e69c;
+            width:400px;
+            min-height:660px;
+            display:flex;
+            justify-content:center;
+            vertical-align: center;;
+        }
+
+        .wrapper2{
+            background-color:#d7e69c;
+            width:400px;
+            min-height:120px;
+            display:flex;
+            justify-content:center;
+            vertical-align: center;;
+        }
+
+        .row{
+            display: flex;
+        }
+
+        .cell{
+            border-radius: 5px;
+            font-size:5em;
+            font-family:sans-serif;
+            background-color:#dc8873;
+            color:#E6D09C;
+            display:flex;
+            justify-content: center;
+            width:60px;
+            height:85px;
+            margin:10px;
+            padding:20px;
+            cursor:pointer;
+        }
+
+        .cell:hover{
+            background-color:#d2654a;
+        }
+
+        .drawGame{
+            
+            border-radius: 5px;
+            font-size:2em;
+            font-family:sans-serif;
+            font-weight: bold;
+            margin:10px;
+            padding:20px;
+            width:300px;
+            height:50px;
+            background-color:#dc8873;
+            color:#E6D09C;
+            text-align:center;
+        }
+
+        .overGame{
+            
+            border-radius: 5px;
+            font-size:2em;
+            font-family:sans-serif;
+            font-weight: bold;
+            margin:10px;
+            padding:20px;
+            width:300px;
+            height:50px;
+            background-color:#dc8873;
+            color:#E6D09C;
+            text-align:center;
+
+        }
+
+        .title{
+            border-radius: 5px;
+            font-size:2em;
+            font-family:sans-serif;
+            margin:15px 0 5px 10px ;
+            padding:20px;
+            width:300px;
+            height:50px;
+            background-color:#dc8873;
+            font-weight: bold;
+            color:#E6D09C;
+            text-align:center;
+        }
+
+        .title, .cell, .reset {
+            animation: fadein 1s;
+            }
+
+        @keyframes fadein {
+            0% {
+            transform: scale(0);
+             opacity: 0;
+            }
+            50% {
+            transform: scale(1.1);
+            opacity:.9;
+            }
+            100% {
+            transform: scale(1);
+            opacity:1;
+            }
+            }
+
+        .reset{
+            border-radius: 5px;
+            font-size:2em;
+            font-family:sans-serif;
+            border-style: solid;
+            border-color:#dc8873;
+            padding:20px;
+            width:300px;
+            height:80px;
+            background-color:#dc8873;
+            
+            font-weight: bold;
+            color:#E6D09C;
+            text-align:center;
+        }
+
+        .reset:hover{
+            background-color:#d2654a;
+            width:310px;
+            height:90px;
+            border-radius:10px;
+        }
+
+
+        .bounce-enter-active, .fade-leave-active {
+            animation: bounce-in .7s;
+        }
+        
+
+        @keyframes bounce-in {
+         0% {
+            transform: scale(0);
+             opacity: 0;
+            }
+        50% {
+            transform: scale(1.2);
+            opacity:.7;
+            }
+        100% {
+            transform: scale(1);
+            opacity:1;
+            }
+        }
+
+        
+
+                
+    </style>
+</head>
+<body>
+    <!--Wraps the game title and interactive elements-->
+    <div class="wrapper"> 
+        <div id="app">
+            
+            <div>
+                <div class="title">TIC TAC TOE</div>
+                <div    class="row" 
+                        v-for="(row, indexR) in grid" 
+                        v-bind:key="row">
+                    <div    class="cell" 
+                            v-for="(item, indexC) in row"
+                            v-bind:key="item"
+                            v-on:click="selectCell(indexR, indexC)">
+                            {{ item }}
+                    </div>
+                </div>
+            </div>
+
+            <!--Transition is a cool css thing vue does that makes animating even more efficient-->
+            <!--this transition creates a bouncy message when a winner/draw is decided-->
+            <transition name="bounce">
+            <div v-if="drawGame" class ="drawGame">IT'S A DRAW</div>
+            <div v-if="gameOver" class = "overGame">
+                
+                <div v-if="winningplayer === 'X'">PLAYER 2 WINS</div>
+                <div v-else-if="winningplayer === 'O'">PLAYER 1 WINS</div>
+                
+                
+            </div>
+            </transition>
+
+        </div>
+        
+    </div>
+    <!--A seperate wrapper just for the reset button, starts the game over again at any point-->
+    <div class="wrapper2">
+            <button class="reset" onclick="history.go(0)">Reset</button>
+    </div>
+    
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

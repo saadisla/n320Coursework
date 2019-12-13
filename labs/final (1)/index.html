@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Smash Ultimate Tier List</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <style>
+        .characterStats{
+            color:white;
+            font-weight:bold;
+            font-size:1.2em;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+        <!--Header-->
+        <div id="header">
+            <span style="display:flex">
+                <div id="home" v-on:click.native="goHome()"><img style="margin-left:300px;width:100px; height:100px;" src="img/Smash_Ball.png" v-on:click="goHome()"></div>
+                <div class="headerText" v-on:click="goHome()" style="margin-top:30px;margin-left:20px;padding:10px;">SUPER SMASH BROS ULTIMATE S TIER</div>
+            </span>
+        </div>
+    
+        <!--Transition===================================================================================================-->
+        <!--divs used to make the animated transition between pages-->
+        <div class="transition" id="transition1" v-if="transition">
+
+        </div>
+        <div class="transition" id="transition2" v-if="transition">
+    
+        </div>
+        <div class="transition" id="transition3" v-if="transition">
+    
+        </div>
+        <div class="transition" id="transition4" v-if="transition">
+    
+        </div>
+        <div id="transition5" v-if="transition">
+    
+        </div>
+        <!--Character List Page==========================================================================================-->
+        <!--Tier list with all character icons-->
+
+        <div id="mainCharacterSelect" class="container" v-if="page1">
+            <span style="display:flex">
+                <div class="tierHeader"> 
+                    <br><br><br>
+                    S TIER 
+                </div>
+
+
+                <div class="tierList">
+                    <!--First Row-->
+                    <span style="display:flex">
+                        <!--SNAKE-->
+                        <div id="snake" class="characterIconContainer" v-on:click="select($event)">
+                            <img class="characterIcon" src="img/Snake - Thumbnail.png" alt="Snake"> 
+                            <img class="franchiseIcon" src="img/MetalGearSymbol.svg" alt="Metal Gear">
+                            <div class="label">SNAKE</div>
+                        </div>
+                        <!--PEACH-->
+                        <div id="peach" class="characterIconContainer" v-on:click="select($event)">
+                            <img class="characterIcon" src="img/Peach - Thumbnail.png" alt="Peach"> 
+                            <img class="franchiseIcon" src="img/PeachSymbol.svg" alt="Mario">
+                            <div class="label">PEACH</div>
+                        </div>
+                        <!--FOX-->
+                        <div id="fox" class="characterIconContainer" v-on:click="select($event)">
+                            <img class="characterIcon" src="img/Fox - Thumbnail.png" alt="Fox">
+                            <img class="franchiseIcon" src="img/StarFoxSymbol.svg" alt="star fox symbol">
+                            <div class="label">FOX</div>
+                        </div>
+                        <!--PIKACHU-->
+                        <div id="pikachu" class="characterIconContainer" v-on:click="select($event)">
+                            <img class="characterIcon" src="img/Pikachu - Thumbnail.png" alt="Pikachu">
+                            <img class="franchiseIcon" src="img/PokemonSymbol.svg" alt="Pokemon">
+                            <div class="label">PIKACHU</div>
+                        </div>
+                        <!--PICHU-->
+                        <div id="pichu" class="characterIconContainer" v-on:click="select($event)">
+                            <img class="characterIcon" src="img/Pichu - Thumbnail.png" alt="Pichu">
+                            <img class="franchiseIcon" src="img/PokemonSymbol.svg" alt="Pokemon">
+                            <div class="label">PICHU</div>
+                        </div>
+                    </span>
+
+                    <!--Second Row-->
+                    <span style="display:flex">
+                        <!--PALUTENA-->
+                        <div id="palutena" class="characterIconContainer" v-on:click="select($event)">
+                            <img class="characterIcon" src="img/Palutena - Thumbnail.png" alt="Palutena">
+                            <img class="franchiseIcon" src="img/KidIcarusSymbol.svg" alt="Pokemon">
+                            <div class="label">PALUTENA</div>
+                        </div>
+                        <!--WOLF-->
+                        <div id="wolf" class="characterIconContainer" v-on:click="select($event)">
+                            <img class="characterIcon" src="img/Wolf - Thumbnail.png" alt="Wolf">
+                            <img class="franchiseIcon" src="img/StarFoxSymbol.svg" alt="StarFox">
+                            <div class="label">WOLF</div>
+                        </div>
+                        <!--JOKER-->
+                        <div id="joker" class="characterIconContainer" v-on:click="select($event)">
+                            <img class="characterIcon" src="img/Joker - Thumbnail.png" alt="Joker">
+                            <img class="franchiseIcon" src="img/PersonaSymbol.svg" alt="Persona">
+                            <div class="label">JOKER</div>
+                        </div>
+                        <!--INKLING-->
+                        <div id="inkling" class="characterIconContainer" v-on:click="select($event)">
+                            <img class="characterIcon" src="img/Inkling - Thumbnail.png" alt="Inkling">
+                            <img class="franchiseIcon" src="img/SplatoonSymbol.svg" alt="Splatoon">
+                            <div class="label">INKLING</div>
+                        </div>
+                        <!--LUCINA-->
+                        <div id="lucina" class="characterIconContainer" v-on:click="select($event)">
+                            <img class="characterIcon" src="img/Lucina - Thumbnail.png" alt="Lucina">
+                            <img class="franchiseIcon" src="img/FireEmblemSymbol.svg" alt="Fire Emblem">
+                            <div class="label">LUCINA</div>
+                        </div>
+                    </span>
+                </div>
+            </span>   
+        </div>
+        
+
+
+
+        <!--Character Details Page=======================================================================================-->
+        <!--Displays character stats and special moves-->
+        <div id="characterDetailPage" class="container" v-if="page2">
+            <span style="display:flex">
+
+                <!--Character Image-->
+                <div class="characterIconDetial" v-on:click="goHome()">
+                    <div v-if="yeet === 'snake'">
+                            <div class="tierHeader">SNAKE</div>
+                            <img class="characterIconDetial" src="img/Snake - Thumbnail.png" alt="snake">
+                    </div>
+                    <div v-if="yeet === 'peach'">
+                            <div class="tierHeader">PEACH</div>
+                            <img class="characterIconDetial" src="img/Peach - Thumbnail.png" alt="peach">
+                    </div>
+                    <div v-if="yeet === 'fox'">
+                            <div class="tierHeader">FOX</div>
+                            <img class="characterIconDetial" src="img/Fox - Thumbnail.png" alt="fox">
+                    </div>
+                    <div v-if="yeet === 'pikachu'">
+                            <div class="tierHeader">PIKACHU</div>
+                            <img class="characterIconDetial" src="img/Pikachu - Thumbnail.png" alt="pikachu">
+                    </div>
+                    <div v-if="yeet === 'pichu'">
+                            <div class="tierHeader">PICHU</div>
+                            <img class="characterIconDetial" src="img/Pichu - Thumbnail.png" alt="pichu">
+                    </div>
+                    <div v-if="yeet === 'palutena'">
+                            <div class="tierHeader">PALUTENA</div>
+                            <img class="characterIconDetial" src="img/Palutena - Thumbnail.png" alt="palutena">
+                    </div>
+                    <div v-if="yeet === 'wolf'">
+                            <div class="tierHeader">WOLF</div>
+                            <img class="characterIconDetial" src="img/Wolf - Thumbnail.png" alt="wolf">
+                    </div>
+                    <div v-if="yeet === 'joker'">
+                            <div class="tierHeader">JOKER</div>
+                            <img class="characterIconDetial" src="img/Joker - Thumbnail.png" alt="joker">
+                    </div>
+                    <div v-if="yeet === 'inkling'">
+                            <div class="tierHeader">INKLING</div>
+                            <img class="characterIconDetial" src="img/Inkling - Thumbnail.png" alt="inkling">
+                    </div>
+                    <div v-if="yeet === 'lucina'">
+                            <div class="tierHeader">LUCINA</div>
+                            <img class="characterIconDetial" src="img/Lucina - Thumbnail.png" alt="lucina">
+                    </div>
+                    
+                    
+                </div>
+
+                <!--Character Stats-->
+                <div class="characterStats">
+                    <ul>
+                        <li  id="damage"> 
+                                <div v-if="yeet === 'snake'">Damage: {{ this.data.characters.snake.stats.damage }} /5</div>
+                                <div v-else-if="yeet === 'peach'">Damage: {{ this.data.characters.peach.stats.damage }} /5</div>
+                                <div v-else-if="yeet === 'fox'">Damage: {{ this.data.characters.fox.stats.damage }} /5</div>
+                                <div v-else-if="yeet === 'pikachu'">Damage: {{ this.data.characters.pikachu.stats.damage }} /5</div>
+                                <div v-else-if="yeet === 'pichu'">Damage: {{ this.data.characters.pichu.stats.damage }} /5</div>
+                                <div v-else-if="yeet === 'palutena'">Damage: {{ this.data.characters.palutena.stats.damage }} /5</div>
+                                <div v-else-if="yeet === 'wolf'">Damage: {{ this.data.characters.wolf.stats.damage }} /5</div>
+                                <div v-else-if="yeet === 'joker'">Damage: {{ this.data.characters.joker.stats.damage }} /5</div>
+                                <div v-else-if="yeet === 'inkling'">Damage: {{ this.data.characters.inkling.stats.damage }} /5</div>
+                                <div v-else-if="yeet === 'lucina'">Damage: {{ this.data.characters.lucina.stats.damage }} /5</div>
+                                
+                                
+                           <!-- {{ this.data.characters.snake.stats.damage }} -->
+                        </li>
+                        <li id="recovery">
+                                <div v-if="yeet === 'snake'">Recovery: {{ this.data.characters.snake.stats.recovery }} /5</div>
+                                <div v-else-if="yeet === 'peach'">Recovery: {{ this.data.characters.peach.stats.recovery }} /5</div>
+                                <div v-else-if="yeet === 'fox'">Recovery: {{ this.data.characters.fox.stats.recovery }} /5</div>
+                                <div v-else-if="yeet === 'pikachu'">Recovery: {{ this.data.characters.pikachu.stats.recovery }} /5</div>
+                                <div v-else-if="yeet === 'pichu'">Recovery: {{ this.data.characters.pichu.stats.recovery }} /5</div>
+                                <div v-else-if="yeet === 'palutena'">Recovery: {{ this.data.characters.palutena.stats.recovery }} /5</div>
+                                <div v-else-if="yeet === 'wolf'">Recovery: {{ this.data.characters.wolf.stats.recovery }} /5</div>
+                                <div v-else-if="yeet === 'joker'">Recovery: {{ this.data.characters.joker.stats.recovery }} /5</div>
+                                <div v-else-if="yeet === 'inkling'">Recovery: {{ this.data.characters.inkling.stats.recovery }} /5</div>
+                                <div v-else-if="yeet === 'lucina'">Recovery: {{ this.data.characters.lucina.stats.recovery }} /5</div>
+                        </li>
+                        <li id="neutral">
+                                <div v-if="yeet === 'snake'">Neutral: {{ this.data.characters.snake.stats.neutral }} /5</div>
+                                <div v-else-if="yeet === 'peach'">Neutral: {{ this.data.characters.peach.stats.neutral }} /5</div>
+                                <div v-else-if="yeet === 'fox'">Neutral: {{ this.data.characters.fox.stats.neutral }} /5</div>
+                                <div v-else-if="yeet === 'pikachu'">Neutral: {{ this.data.characters.pikachu.stats.neutral }} /5</div>
+                                <div v-else-if="yeet === 'pichu'">Neutral: {{ this.data.characters.pichu.stats.neutral }} /5</div>
+                                <div v-else-if="yeet === 'palutena'">Neutral: {{ this.data.characters.palutena.stats.neutral }} /5</div>
+                                <div v-else-if="yeet === 'wolf'">Neutral: {{ this.data.characters.wolf.stats.neutral }} /5</div>
+                                <div v-else-if="yeet === 'joker'">Neutral: {{ this.data.characters.joker.stats.neutral }} /5</div>
+                                <div v-else-if="yeet === 'inkling'">Neutral: {{ this.data.characters.inkling.stats.neutral }} /5</div>
+                                <div v-else-if="yeet === 'lucina'">Neutral: {{ this.data.characters.lucina.stats.neutral }} /5</div>
+                        </li>
+                        <li id="defense">
+                                <div v-if="yeet === 'snake'">Defense: {{ this.data.characters.snake.stats.defense }} /5</div>
+                                <div v-else-if="yeet === 'peach'">Defense: {{ this.data.characters.peach.stats.defense }} /5</div>
+                                <div v-else-if="yeet === 'fox'">Defense: {{ this.data.characters.fox.stats.defense }} /5</div>
+                                <div v-else-if="yeet === 'pikachu'">Defense: {{ this.data.characters.pikachu.stats.defense }} /5</div>
+                                <div v-else-if="yeet === 'pichu'">Defense: {{ this.data.characters.pichu.stats.defense }} /5</div>
+                                <div v-else-if="yeet === 'palutena'">Defense: {{ this.data.characters.palutena.stats.defense }} /5</div>
+                                <div v-else-if="yeet === 'wolf'">Defense: {{ this.data.characters.wolf.stats.defense }} /5</div>
+                                <div v-else-if="yeet === 'joker'">Defense: {{ this.data.characters.joker.stats.defense }} /5</div>
+                                <div v-else-if="yeet === 'inkling'">Defense: {{ this.data.characters.inkling.stats.defense }} /5</div>
+                                <div v-else-if="yeet === 'lucina'">Defense: {{ this.data.characters.lucina.stats.defense }} /5</div>
+                        </li>
+                        <li id="weight">
+                                <div v-if="yeet === 'snake'">Weight: {{ this.data.characters.snake.stats.weight }} /5</div>
+                                <div v-else-if="yeet === 'peach'">Weight: {{ this.data.characters.peach.stats.weight }} /5</div>
+                                <div v-else-if="yeet === 'fox'">Weight: {{ this.data.characters.fox.stats.weight }} /5</div>
+                                <div v-else-if="yeet === 'pikachu'">Weight: {{ this.data.characters.pikachu.stats.weight }} /5</div>
+                                <div v-else-if="yeet === 'pichu'">Weight: {{ this.data.characters.pichu.stats.weight }} /5</div>
+                                <div v-else-if="yeet === 'palutena'">Weight: {{ this.data.characters.palutena.stats.weight }} /5</div>
+                                <div v-else-if="yeet === 'wolf'">Weight: {{ this.data.characters.wolf.stats.weight }} /5</div>
+                                <div v-else-if="yeet === 'joker'">Weight: {{ this.data.characters.joker.stats.weight }} /5</div>
+                                <div v-else-if="yeet === 'inkling'">Weight: {{ this.data.characters.inkling.stats.weight }} /5</div>
+                                <div v-else-if="yeet === 'lucina'">Weight: {{ this.data.characters.lucina.stats.weight }} /5</div>
+                        </li>
+                    </ul>
+                </div>
+            </span>
+
+            <!--Special Moves-->
+            <div style="display:flex">
+                <div class="characterMoves">
+                    <div class="characterMoveList">
+                        <div class="tierHeader">SPECIALS</div>
+                        <span style="display:flex">
+
+                            <!--NEUTRAL SPECIAL-->
+                            <div class="Move">
+                                <div class="moveVisual" v-on:mouseover="displayNeutral" v-on:mouseout="hideNeutral">
+                                        <div v-if="yeet === 'snake'">
+                                            <img src="img/snakemoves/nb.jpg" alt="Snake Neutral B">
+                                        </div>
+                                        <div v-if="yeet === 'peach'">
+                                            <img src="img/peachmoves/nb.jpg" alt="Peach Neutral B">
+                                        </div>
+                                        <div v-if="yeet === 'fox'">
+                                            <img src="img/foxmoves/nb.jpg" alt="Fox Neutral B">
+                                        </div>
+                                        <div v-if="yeet === 'pikachu'">
+                                            <img src="img/pikachumoves/nb.jpeg" alt="Pikachu Neutral B">
+                                        </div>
+                                        <div v-if="yeet === 'pichu'">
+                                            <img src="img/pichumoves/nb.jpeg" alt="Pichu Neutral B">
+                                        </div>
+                                        <div v-if="yeet === 'palutena'">
+                                            <img src="img/palutenamoves/nb.jpg" alt="Palutena Neutral B">
+                                        </div>
+                                        <div v-if="yeet === 'wolf'">
+                                            <img src="img/wolfmoves/nb.jpg" alt="Wolf Neutral B">
+                                        </div>
+                                        <div v-if="yeet === 'joker'">
+                                            <img src="img/jokermoves/nb.jpg" alt="Joker Neutral B">
+                                        </div>
+                                        <div v-if="yeet === 'inkling'">
+                                            <img src="img/inklingmoves/nb.jpg" alt="Inkling Neutral B">
+                                        </div>
+                                        <div v-if="yeet === 'lucina'">
+                                            <img src="img/lucinamoves/nb.jpg" alt="Lucina Neutral B">
+                                        </div>
+                                </div>
+                                <div class="buttonContainer">
+                                    <img class="buttonSymbol" src="img/StickNeutral.svg">                                    
+                                    <img class="buttonSymbol" src="img/ButtonB.svg">
+                                </div>
+                                <div class="moveDetails" v-if="moveNeutral">
+                                    Neutral Special:
+                                    <div v-if="yeet === 'snake'"> {{ this.data.characters.snake.stats.moves.neutralSpec }}</div>
+                                    <div v-else-if="yeet === 'peach'"> {{ this.data.characters.peach.stats.moves.neutralSpec }}</div>
+                                    <div v-else-if="yeet === 'fox'"> {{ this.data.characters.fox.stats.moves.neutralSpec }}</div>
+                                    <div v-else-if="yeet === 'pikachu'"> {{ this.data.characters.pikachu.stats.moves.neutralSpec }}</div>
+                                    <div v-else-if="yeet === 'pichu'"> {{ this.data.characters.pichu.stats.moves.neutralSpec }}</div>
+                                    <div v-else-if="yeet === 'palutena'"> {{ this.data.characters.palutena.stats.moves.neutralSpec }}</div>
+                                    <div v-else-if="yeet === 'wolf'"> {{ this.data.characters.wolf.stats.moves.neutralSpec }}</div>
+                                    <div v-else-if="yeet === 'joker'"> {{ this.data.characters.joker.stats.moves.neutralSpec }}</div>
+                                    <div v-else-if="yeet === 'inkling'"> {{ this.data.characters.inkling.stats.moves.neutralSpec }}</div>
+                                    <div v-else-if="yeet === 'lucina'"> {{ this.data.characters.lucina.stats.moves.neutralSpec }}</div>
+                                </div>
+                            </div>
+
+                            <!--SIDE SPECIAL-->
+                            <div class="Move">
+                                <div class="moveVisual" v-on:mouseover="displaySide" v-on:mouseout="hideSide">
+                                        <div v-if="yeet === 'snake'">
+                                                <img src="img/snakemoves/sb.jpg" alt="Snake Neutral B">
+                                            </div>
+                                        <div v-if="yeet === 'peach'">
+                                                <img src="img/peachmoves/sb.jpg" alt="Peach Side B">
+                                        </div>
+                                        <div v-if="yeet === 'fox'">
+                                            <img src="img/foxmoves/sb.jpg" alt="Fox Side B">
+                                        </div>
+                                        <div v-if="yeet === 'pikachu'">
+                                            <img src="img/pikachumoves/sb.jpeg" alt="Pikachu Side B">
+                                        </div>
+                                        <div v-if="yeet === 'pichu'">
+                                            <img src="img/pichumoves/sb.jpg" alt="Pichu Side B">
+                                        </div>
+                                        <div v-if="yeet === 'palutena'">
+                                            <img src="img/palutenamoves/sb.jpg" alt="Palutena Side B">
+                                        </div>
+                                        <div v-if="yeet === 'wolf'">
+                                            <img src="img/wolfmoves/sb.jpg" alt="Wolf Side B">
+                                        </div>
+                                        <div v-if="yeet === 'joker'">
+                                            <img src="img/jokermoves/sb.jpg" alt="Joker Side B">
+                                        </div>
+                                        <div v-if="yeet === 'inkling'">
+                                            <img src="img/inklingmoves/sb.jpg" alt="Inkling Side B">
+                                        </div>
+                                        <div v-if="yeet === 'lucina'">
+                                            <img src="img/lucinamoves/sb.jpg" alt="Lucina Side B">
+                                        </div>
+                                </div>
+                                <div class="buttonContainer">
+                                    <img class="buttonSymbol" src="img/StickLeft.svg">
+                                    <img class="buttonSymbol" src="img/ButtonB.svg">
+                                </div>
+                                <div class="moveDetails" v-if="moveSide">
+                                    Side Special:
+                                    <div v-if="yeet === 'snake'"> {{ this.data.characters.snake.stats.moves.sideSpec }}</div>
+                                    <div v-else-if="yeet === 'peach'"> {{ this.data.characters.peach.stats.moves.sideSpec }}</div>
+                                    <div v-else-if="yeet === 'fox'"> {{ this.data.characters.fox.stats.moves.sideSpec }}</div>
+                                    <div v-else-if="yeet === 'pikachu'"> {{ this.data.characters.pikachu.stats.moves.sideSpec }}</div>
+                                    <div v-else-if="yeet === 'pichu'"> {{ this.data.characters.pichu.stats.moves.sideSpec }}</div>
+                                    <div v-else-if="yeet === 'palutena'"> {{ this.data.characters.palutena.stats.moves.sideSpec }}</div>
+                                    <div v-else-if="yeet === 'wolf'"> {{ this.data.characters.wolf.stats.moves.sideSpec }}</div>
+                                    <div v-else-if="yeet === 'joker'"> {{ this.data.characters.joker.stats.moves.sideSpec }}</div>
+                                    <div v-else-if="yeet === 'inkling'"> {{ this.data.characters.inkling.stats.moves.sideSpec }}</div>
+                                    <div v-else-if="yeet === 'lucina'"> {{ this.data.characters.lucina.stats.moves.sideSpec }}</div>
+                                </div>
+                            </div>
+
+                            <!--DOWN SPECIAL-->
+                            <div class="Move">
+                                <div class="moveVisual" v-on:mouseover="displayDown" v-on:mouseout="hideDown">
+                                        <div v-if="yeet === 'snake'">
+                                                <img src="img/snakemoves/db.jpg" alt="Snake Down B">
+                                            </div>
+                                        <div v-if="yeet === 'peach'">
+                                                <img src="img/peachmoves/db.png" alt="Peach Down B">
+                                            </div>
+                                        <div v-if="yeet === 'fox'">
+                                            <img src="img/foxmoves/db.jpg" alt="Fox Down B">
+                                        </div>
+                                        <div v-if="yeet === 'pikachu'">
+                                            <img src="img/pikachumoves/db.jpg" alt="Pikachu Down B">
+                                        </div>
+                                        <div v-if="yeet === 'pichu'">
+                                            <img src="img/pichumoves/db.jpg" alt="Pichu Down B">
+                                        </div>
+                                        <div v-if="yeet === 'palutena'">
+                                            <img src="img/palutenamoves/db.jpg" alt="Palutena Down B">
+                                        </div>
+                                        <div v-if="yeet === 'wolf'">
+                                            <img src="img/wolfmoves/db.jpg" alt="Wolf Down B">
+                                        </div>
+                                        <div v-if="yeet === 'joker'">
+                                            <img src="img/jokermoves/db.jpg" alt="Joker Down B">
+                                        </div>
+                                        <div v-if="yeet === 'inkling'">
+                                            <img src="img/inklingmoves/db.jpg" alt="Inkling Down B">
+                                        </div>
+                                        <div v-if="yeet === 'lucina'">
+                                            <img src="img/lucinamoves/db.jpg" alt="Lucina Down B">
+                                        </div>
+                                </div>
+                                <div class="buttonContainer">
+                                    <img class="buttonSymbol" src="img/StickDown.svg">
+                                    <img class="buttonSymbol" src="img/ButtonB.svg">
+                                </div>
+                                <div class="moveDetails" v-if="moveDown">
+                                    Down Special:
+                                    <div v-if="yeet === 'snake'"> {{ this.data.characters.snake.stats.moves.downSpec }}</div>
+                                    <div v-else-if="yeet === 'peach'"> {{ this.data.characters.peach.stats.moves.downSpec }}</div>
+                                    <div v-else-if="yeet === 'fox'"> {{ this.data.characters.fox.stats.moves.downSpec }}</div>
+                                    <div v-else-if="yeet === 'pikachu'"> {{ this.data.characters.pikachu.stats.moves.downSpec }}</div>
+                                    <div v-else-if="yeet === 'pichu'"> {{ this.data.characters.pichu.stats.moves.downSpec }}</div>
+                                    <div v-else-if="yeet === 'palutena'"> {{ this.data.characters.palutena.stats.moves.downSpec }}</div>
+                                    <div v-else-if="yeet === 'wolf'"> {{ this.data.characters.wolf.stats.moves.downSpec }}</div>
+                                    <div v-else-if="yeet === 'joker'"> {{ this.data.characters.joker.stats.moves.downSpec }}</div>
+                                    <div v-else-if="yeet === 'inkling'"> {{ this.data.characters.inkling.stats.moves.downSpec }}</div>
+                                    <div v-else-if="yeet === 'lucina'"> {{ this.data.characters.lucina.stats.moves.downSpec }}</div>
+                                </div>
+                                
+                            </div>
+
+                            <!--UP SPECIAL-->
+                            <div class="Move">
+                                <div class="moveVisual" v-on:mouseover="displayUp" v-on:mouseout="hideUp">
+                                        <div v-if="yeet === 'snake'">
+                                                <img src="img/snakemoves/ub.jpg" alt="Snake Up B">
+                                            </div>
+                                        <div v-if="yeet === 'peach'">
+                                                <img src="img/peachmoves/ub.jpg" alt="Peach Up B">
+                                            </div>
+                                        <div v-if="yeet === 'fox'">
+                                            <img src="img/foxmoves/ub.jpg" alt="Fox Up B">
+                                        </div>
+                                        <div v-if="yeet === 'pikachu'">
+                                            <img src="img/pikachumoves/ub.jpg" alt="Pikachu Up B">
+                                        </div>
+                                        <div v-if="yeet === 'pichu'">
+                                            <img src="img/pichumoves/ub.jpg" alt="Pichu Up B">
+                                        </div>
+                                        <div v-if="yeet === 'palutena'">
+                                            <img src="img/palutenamoves/ub.jpg" alt="Palutena Up B">
+                                        </div>
+                                        <div v-if="yeet === 'wolf'">
+                                            <img src="img/wolfmoves/ub.jpg" alt="Wolf Up B">
+                                        </div>
+                                        <div v-if="yeet === 'joker'">
+                                            <img src="img/jokermoves/ub.jpg" alt="Joker Up B">
+                                        </div>
+                                        <div v-if="yeet === 'inkling'">
+                                            <img src="img/inklingmoves/ub.jpg" alt="Inkling Up B">
+                                        </div>
+                                        <div v-if="yeet === 'lucina'">
+                                            <img src="img/lucinamoves/ub.jpg" alt="Lucina Up B">
+                                        </div>
+                                </div>
+                                <div class="buttonContainer">
+                                    <img class="buttonSymbol" src="img/StickUp.svg">
+                                    <img class="buttonSymbol" src="img/ButtonB.svg">
+                                </div>
+                                <div class="moveDetails" v-if="moveUp">
+                                    Up Special:
+                                    <div v-if="yeet === 'snake'"> {{ this.data.characters.snake.stats.moves.upSpec }}</div>
+                                    <div v-else-if="yeet === 'peach'"> {{ this.data.characters.peach.stats.moves.upSpec }}</div>
+                                    <div v-else-if="yeet === 'fox'"> {{ this.data.characters.fox.stats.moves.upSpec }}</div>
+                                    <div v-else-if="yeet === 'pikachu'"> {{ this.data.characters.pikachu.stats.moves.upSpec }}</div>
+                                    <div v-else-if="yeet === 'pichu'"> {{ this.data.characters.pichu.stats.moves.upSpec }}</div>
+                                    <div v-else-if="yeet === 'palutena'"> {{ this.data.characters.palutena.stats.moves.upSpec }}</div>
+                                    <div v-else-if="yeet === 'wolf'"> {{ this.data.characters.wolf.stats.moves.upSpec }}</div>
+                                    <div v-else-if="yeet === 'joker'"> {{ this.data.characters.joker.stats.moves.upSpec }}</div>
+                                    <div v-else-if="yeet === 'inkling'"> {{ this.data.characters.inkling.stats.moves.upSpec }}</div>
+                                    <div v-else-if="yeet === 'lucina'"> {{ this.data.characters.lucina.stats.moves.upSpec }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                    </div>
+                </div>
+                <br><br><br><br>
+
+
+            <!--Character Carousel-->
+            <div class="characterCarousel">
+                <div class="tierHeader">OTHER CHARACTERS</div>
+                <img v-if="yeet != 'snake'" class="characterIconCarousel" src="img/Snake - Thumbnail.png" alt="Snake" v-on:click="select2($event, 'snake')">
+                <img v-if="yeet != 'peach'" class="characterIconCarousel" src="img/Peach - Thumbnail.png" alt="Peach" v-on:click="select2($event, 'peach')">
+                <img v-if="yeet != 'fox'" class="characterIconCarousel" src="img/Fox - Thumbnail.png" alt="Fox" v-on:click="select2($event, 'fox')"> 
+                <img v-if="yeet != 'pikachu'" class="characterIconCarousel" src="img/Pikachu - Thumbnail.png" alt="Pikachu" v-on:click="select2($event, 'pikachu')">
+                <img v-if="yeet != 'pichu'" class="characterIconCarousel" src="img/Pichu - Thumbnail.png" alt="Pichu" v-on:click="select2($event, 'pichu')">
+                <img v-if="yeet != 'palutena'" class="characterIconCarousel" src="img/Palutena - Thumbnail.png" alt="Palutena" v-on:click="select2($event, 'palutena')">
+                <img v-if="yeet != 'wolf'" class="characterIconCarousel" src="img/Wolf - Thumbnail.png" alt="Wolf" v-on:click="select2($event, 'wolf')">
+                <img v-if="yeet != 'joker'" class="characterIconCarousel" src="img/Joker - Thumbnail.png" alt="Joker" v-on:click="select2($event, 'joker')">
+                <img v-if="yeet != 'inkling'" class="characterIconCarousel" src="img/Inkling - Thumbnail.png" alt="Inkling" v-on:click="select2($event, 'inkling')">
+                <img v-if="yeet != 'lucina'" class="characterIconCarousel" src="img/Lucina - Thumbnail.png" alt="Lucina" v-on:click="select2($event, 'lucina')">
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

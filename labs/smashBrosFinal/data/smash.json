@@ -1,0 +1,78 @@
+{
+
+    "characters":{
+		
+        "snake" : {
+			"rank":1, "stats":{
+				"damage":5, "neutral":4, "recovery":4, "defense":5, "weight":4, "moves": {
+					"upSpec": "Cypher", "neutralSpec": "Grenade", "downSpec":"C4", "sideSpec":"Nikita"
+				}
+            }
+        },
+        "peach" : {
+			"rank":2, "stats":{
+				"damage":5, "neutral":5, "recovery":5, "defense":4, "weight":2, "moves":{
+					"upSpec": "Peach Parasol", "neutralSpec": "Toad", "downSpec":"Turnip", "sideSpec":"Peach Bomber"
+				}
+			}
+        },
+        "fox" : {
+			"rank":3, "stats":{
+				"damage":5, "neutral":5, "recovery":4, "defense":3, "weight":1, "moves":{
+					"upSpec": "Fire Fox", "neutralSpec": "Blaster", "downSpec":"Reflector", "sideSpec":"Fox Illusion"
+				}
+            }
+        },
+        "pikachu" : {
+			"rank":4, "stats":{
+				"damage":5, "neutral":5, "recovery":5, "defense":4, "weight":2, "moves":{
+					"upSpec": "Quick Attack", "neutralSpec": "Thunder Jolt", "downSpec":"Thunder", "sideSpec":"Skull Bash"
+				}
+            }
+        },
+        "lucina" : {
+			"rank":5, "stats":{
+				"damage":4, "neutral":4, "recovery":5, "defense":5, "weight":3, "moves":{
+					"upSpec": "Dolphin Slash", "neutralSpec": "Shield Breaker", "downSpec":"Counter", "sideSpec":"Dancing Blade"
+				}
+            }
+        },
+        "pichu" : {
+			"rank":6, "stats":{
+				"damage":5, "neutral":4, "recovery":5, "defense":4, "weight":1, "moves":{
+					"upSpec": "Agility", "neutralSpec": "Thunder Jolt", "downSpec":"Thunder", "sideSpec":"Skull Bash"
+				}
+            }
+        },
+        "joker" : {
+			"rank":7, "stats":{
+				"damage":4, "neutral":4, "recovery":4, "defense":4, "weight":2, "moves":{
+					"upSpec": "Grappling Hook", "neutralSpec": "Gun", "downSpec":"Rebel's Guard", "sideSpec":"Eiha"
+				}
+            }
+        },
+        "palutena" : {
+			"rank":8, "stats":{
+				"damage":4, "neutral":4, "recovery":4, "defense":4, "weight":3, "moves":{
+					"upSpec": "Warp", "neutralSpec": "Auto-Reticle", "downSpec":"Counter and Reflect Barrier", "sideSpec":"Warp"
+				}
+            }
+        },
+		"inkling" : {
+			"rank":9, "stats":{
+				"damage":5, "neutral":5, "recovery":4, "defense":4, "weight":2, "moves":{
+					"upSpec": "Super Jump", "neutralSpec": "Splattershot", "downSpec":"Splat Bomb", "sideSpec":"Splat"
+				}
+            }
+        },
+		"wolf": {
+			"rank":10, "stats":{
+				"damage":5, "neutral":5, "recovery":3, "defense":4, "weight":3, "moves":{
+					"upSpec": "Fire Wolf", "neutralSpec": "Blaster", "downSpec":"Reflector", "sideSpec":"Wolf Flash"
+				}
+            }
+        }
+ 
+    }
+
+}
